@@ -1,0 +1,12 @@
+vboxuser@ubuntu1:~$ python3 sensor_simulation.py
+INFO:root:[2025-11-10 02:14:10] 💬 Gelen Mesaj -> Enerji Değeri: 8450 Wh
+INFO:root:[2025-11-10 02:14:15] 💬 Gelen Mesaj -> Enerji Değeri: 8555 Wh
+INFO:root:[2025-11-10 02:14:20] 💬 Gelen Mesaj -> Enerji Değeri: 8660 Wh
+INFO:root:[2025-11-10 02:14:25] 💬 Gelen Mesaj -> Enerji Değeri: 8768 Wh
+INFO:root:[2025-11-10 02:14:30] 💬 Gelen Mesaj -> Enerji Değeri: 45890 Wh  ANOMALİ (Ani Sıçrama)
+INFO:root:[2025-11-10 02:14:35] 💬 Gelen Mesaj -> Enerji Değeri: 8980 Wh   Normale dönüş
+INFO:root:[2025-11-10 02:14:40] 💬 Gelen Mesaj -> Enerji Değeri: 9085 Wh
+INFO:root:[2025-11-10 02:14:45] 💬 Gelen Mesaj -> Enerji Değeri: 9192 Wh
+INFO:root:[2025-11-10 02:14:50] 💬 Gelen Mesaj -> Enerji Değeri: 9300 Wh
+^C
+vboxuser@ubuntu1:~$
