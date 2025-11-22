@@ -1,0 +1,13 @@
+💥 Anomali: Kaza Sonrası CAN Bus Kopması (Bus-Off) Olay Zinciri SimülasyonuCAN Bus kopması senaryosunun, modern bir elektrikli araçtaki kritik güvenlik sistemleri üzerindeki yıkıcı zincirleme etkisini adım adım inceleyen akış analizi aşağıdadır.Getty Images1. Normal ve Anomali Durumların KarşılaştırılmasıAşamaOlayNormal Durum (CAN Çalışıyor)Anomali Durum (CAN Kopmuş/Bus-Off)1. KazaAraç Sert Darbe AlırÇarpışma sensörleri "Crash Event" sinyali üretir.Aynı sinyal üretilir.2. İletişimAcil Durum MesajıSinyal, CAN Bus üzerinden tüm kritik ECU'lara milisaniyede ulaşır.CAN hattı kopar/kısa devre olur. Mesajlar bozulur veya hiç ulaşmaz.3. GüvenlikKapı KilitleriKapı kilidi ECU'su komutu alır ve kilitler açılır.Kapı ECU'su komut alamaz; varsayılan (fail-safe) kilitli kalma durumuna geçer.4. EnerjiBatarya YönetimiBMS, kesme komutunu alır ve yüksek voltaj kontaktörleri açılır.BMS komutu alamaz; kontaktörler kapalı kalır, akım kesilmez.5. Nihai RiskZincirleme ArızaYolcular serbest kalır, batarya güvenli şekilde devreden çıkar.Sürekli akım, hasarlı batarya hücrelerinde termal kaçağı tetikler. Yangın/Patlama riski başlar.6. Bus-OffECU DurumuTüm ECU'lar sağlıklı iletişimde kalır.Hata sayacı dolan ECU'lar (örn: Kapı, BMS) Bus-Off durumuna girerek hattı terk eder, tamamen devre dışı kalır.2. Çözüm/Müdahale Önerileri Akış AnaliziAnomaliyi önlemek ve etkilerini azaltmak için atılması gereken adımlar:Kod snippet'igraph TD
+    A[Sert Darbe ve Crash Sinyali] --> B(CAN Bus Kopması/Bus-Off);
+    B --> C{Arıza Tespit Mekanizması};
+    C -- Hata Tespit Edildi --> D[Yedek İletişim Hattı/Protokol];
+    D --> E(Kritik Acil Komutları Gönder);
+    E --> F[Kritik Modül 1: Batarya Yönetimi Sistemi];
+    E --> G[Kritik Modül 2: Kapı Kilitleri];
+    F --> F1(Manuel Fiziksel Kesici/Yedek Sinyal ile Kontaktör Aç);
+    G --> G1(Mekanik Mandalla Acil Açma Veya Yedek Güçle Kilit Aç);
+    F1 & G1 --> H[Sistem Güvenliği Sağlandı];
+    D -- Hata Giderilemedi --> I(Otomatik ECU Reset Mekanizması);
+    I --> J(Telemetri ile Gerçek Zamanlı Sağlık Takibi);
+Açıklamalar:Yedek Hat: Kritik sistemler için CAN'den bağımsız, fiziksel olarak farklı bir hat (örn: LIN Bus veya ayrı bir CAN hattı) üzerinden yalnızca acil durum komutlarının gönderilmesi.Manuel Kesici: Batarya modülüne direkt bağlı, harici veya darbe sensörüne entegre, CAN Bus'tan bağımsız çalışan mekanik/fiziksel bir elektrik kesici (sigorta/kontaktör).

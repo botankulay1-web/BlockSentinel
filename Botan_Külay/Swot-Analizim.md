@@ -1,0 +1,13 @@
+Kategori,Analiz,İlgili Sistemler
+✅ Güçlü Yönler (Strengths),,
+"Koordinasyon: CAN Bus'ın doğası gereği milisaniye düzeyinde veri iletimi, tüm kritik sistemlerin (hava yastığı, fren, motor) senkronize çalışmasını sağlar.","Tüm sistemlerin tek ve hızlı bir protokol ile koordine edilmesi, normal şartlarda en hızlı acil durum tepkisini garanti eder.","Hava Yastığı, Motor Kontrol, ABS/Fren Sistemi"
+"Standart Protokol: Endüstri standardı olması, arıza tespit ve onarım için geniş bir bilgi ve araç havuzu sağlar.",Arıza tespiti ve izolasyon mekanizması ile (Bus-Off dahil) sistemi aşırı hatadan korur.,"Tüm ECU'lar, CAN Protokolü"
+❌ Zayıf Yönler (Weaknesses),,
+"Tek Noktadan Başarısızlık: Fiziksel darbe, tek bir hattı (CAN H/L) etkilediğinde tüm hayati iletişim kesilebilir.","Zincirleme Arıza Riski: Bir kopma veya kısa devre, hayati komutların (Kontaktör Aç/Kilit Aç) iletilememesine yol açar.","CAN Bus Hattı, Tüm Kritik ECU'lar (BMS, Kapı)"
+"Bus-Off Durumu: Hata sayacı dolan bir ECU'nun iletişimden tamamen çekilmesi, sistemin o modülle olan iletişimi tamamen kaybetmesi demektir.","Acil durum anında hayati komutu alamama, Bus-Off sonrası manuel müdahaleyi zorunlu kılabilir.","BMS, Kapı Kilidi ECU'su"
+💡 Fırsatlar (Opportunities),,
+"Yedeklilik (Redundancy): Kritik sistemler için ikincil bir iletişim hattı (Dual CAN, LIN Bus) veya alternatif protokollerin (örn: EtherCAT) kullanılması.","Kaza anında ana hat kopsa bile, acil durum komutlarının yedek hat üzerinden iletilmesini sağlar.","BMS, Kapı Kilidi, Hava Yastığı Kontrol Ünitesi"
+"Fail-Safe Mekanizmaları: ""Loss of Communication"" (İletişim Kaybı) durumunu algılayarak, Batarya Kontaktörlerinin otomatik olarak açılmasını sağlayacak donanımsal mantık eklemek.","Komut gelmese bile, iletişim kesildiğinde varsayılan durumun güvenli (kontaktör açık) olması.",Batarya Yönetim Sistemi (BMS)
+⚠️ Tehditler (Threats),,
+"Termal Kaçak Riski: CAN kopması nedeniyle BMS'ye ""enerjiyi kes"" komutunun ulaşmaması, bataryanın devrede kalmasına ve yangın/patlama riskine yol açar.","En büyük güvenlik riski. Bu durum, araç içindeki yolcuların tahliyesini zorlaştırır ve hayati tehlike oluşturur.","Batarya Sistemi, Batarya Kontaktörleri"
+"Erişim Engeli: Kapı kilitlerinin açılmaması, yolcuların veya kurtarma ekiplerinin araca erişimini engeller ve kritik dakikaların kaybına yol açar.",Kaza sonrası müdahale ve kurtarma operasyonlarında aksaklık.,Kapı Kilitleri ve Merkezi Kilit Sistemi
